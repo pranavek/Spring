@@ -8,8 +8,12 @@ public class RootController {
 
 	@RequestMapping("/")
 	 String rootMapping(){
-		System.out.println("Helllo");
 		return "index";
+	}
+	
+	@RequestMapping("/login")
+	 String login(){
+		return "login";
 	}
 	
 }
