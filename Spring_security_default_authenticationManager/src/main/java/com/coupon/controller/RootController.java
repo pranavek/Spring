@@ -8,7 +8,6 @@ public class RootController {
 
 	@RequestMapping("/")
 	 String rootMapping(){
-		System.out.println("Helllo");
 		return "index";
 	}
 	
