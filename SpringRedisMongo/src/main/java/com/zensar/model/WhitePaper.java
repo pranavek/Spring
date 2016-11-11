@@ -1,23 +1,28 @@
 package com.zensar.model;
 
 
+import java.io.Serializable;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
 //@Data //Not working as of now - research on it
-public class WhitePaper {
+public class WhitePaper {//implements  Serializable{
 
 
 
 		@Id
+		//@JsonIgnore
 	    private String id;
 		
 	    @Indexed
 	    private String title;
 	    
-	    private String author;
+		private String author;
 	    private String description;
 	    
 	    

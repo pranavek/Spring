@@ -25,9 +25,9 @@ public class WhitePaperController {
 	@Autowired
     MongoTemplate mongoTemplate;
 	
-    @RequestMapping(value = "/whitePaper", method = RequestMethod.GET)
+    @RequestMapping(value = "/whitePaper", method = RequestMethod.POST)
     public WhitePaper saveWhitePaper(WhitePaper whitePaper){
-    	whitePaper = new WhitePaper();
+    	/*whitePaper = new WhitePaper();
     	whitePaper.setAuthor("Hello");
     	whitePaper.setDescription("Description");
     	whitePaper.setTitle("Hey");
@@ -37,7 +37,7 @@ public class WhitePaperController {
     	whitePaper.setAuthor("author");
     	whitePaper.setDescription("description");
     	whitePaper.setTitle("title");
-    	System.out.println("++++++++++++++++++++++++++"+whitePaper);
+    	System.out.println("++++++++++++++++++++++++++"+whitePaper);*/
         return repository.save(whitePaper);
     }
     
@@ -45,6 +45,7 @@ public class WhitePaperController {
     @Cacheable(value = "whitePaper", key = "#title")
     public WhitePaper findWhitePaperByTitle(@PathVariable String title) 
     {
+    	System.out.println("Whitepaper find by title!");
     	WhitePaper insertedWhitePaper = repository.findByTitle(title);
         return insertedWhitePaper;
     }
